@@ -1,3 +1,9 @@
+# 📦 Inventory Management API
+
+[![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-4.x-lightgrey.svg)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-6.x-brightgreen.svg)](https://www.mongodb.com/)
+[![Jest](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)](https://jestjs.io/)
 📦 Inventory Management System API
 
 A simple backend API to manage products and inventory in a warehouse.
