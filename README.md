@@ -4,144 +4,110 @@
 [![Express](https://img.shields.io/badge/Express-4.x-lightgrey.svg)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-6.x-brightgreen.svg)](https://www.mongodb.com/)
 [![Jest](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)](https://jestjs.io/)
-📦 Inventory Management System API
 
-A simple backend API to manage products and inventory in a warehouse.
-Built with Node.js, Express, and MongoDB following clean architecture principles.
+A simple **Inventory Management System API** built with **Node.js, Express, and MongoDB**.  
+It allows you to manage products, update stock, enforce business rules (no negative stock), and check for low stock thresholds.  
 
-✨ Features
+---
 
-Product Management (CRUD): Create, Read, Update, Delete products
+## 🚀 Features
+- Product CRUD (Create, Read, Update, Delete)
+- Stock management (increase / decrease stock with validation)
+- Low stock check
+- Prevent stock from going below zero
+- Jest + Supertest for testing
+- Postman Collection included for quick testing
 
-Inventory Logic:
+---
 
-Increase stock quantity
+## 📂 Project Structure
+inventory-api/
+├── src/
+│ ├── config/ # Database connection
+│ ├── controllers/ # Request handlers
+│ ├── models/ # Mongoose models
+│ ├── routes/ # API routes
+│ ├── services/ # Business logic
+│ ├── utils/ # Error handling
+│ ├── app.js # Express app
+│ └── server.js # Server entrypoint
+├── tests/ # Jest + Supertest test cases
+├── .gitignore
+├── package.json
+├── README.md
+└── Inventory API.postman_collection.json
 
-Decrease stock quantity (with validation: stock cannot go below 0)
+---
 
-Bonus Features:
+## ⚙️ Setup & Installation
 
-Low-stock threshold check
-
-Unit tests with Jest + Supertest
-
-In-memory MongoDB for safe testing
-
-🛠 Tech Stack
-
-Runtime: Node.js
-
-Framework: Express.js
-
-Database: MongoDB (Mongoose ODM)
-
-Testing: Jest + Supertest + MongoDB Memory Server
-
-Code Quality: ESLint + Prettier
-
-📂 Project Structure
-src/
- ├── config/           # Database connection
- ├── controllers/      # Request handling
- ├── models/           # Mongoose models
- ├── routes/           # API routes
- ├── services/         # Business logic
- ├── utils/            # Error handling, helpers
- ├── app.js            # Express app config
- └── server.js         # Entry point
-tests/                 # Jest + Supertest test cases
-
-⚙️ Setup Instructions
-1️⃣ Clone Repository
-git clone https://github.com/your-username/inventory-api.git
+### 1. Clone the repo
+``bash
+git clone https://github.com/TarushBatra/inventory-api.git
 cd inventory-api
-
-2️⃣ Install Dependencies
+2. Install dependencies
 npm install
+3. Setup environment variables
 
-3️⃣ Environment Variables
-
-Create a .env file in the root with:
-
+Create a .env file in root:
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/inventorydb
-
-
-ℹ️ For cloud DB, replace MONGO_URI with your MongoDB Atlas connection string.
-
-4️⃣ Start Development Server
+MONGO_URI=mongodb://localhost:27017/inventoryDB
+4. Start development server
 npm run dev
+Server runs at 👉 http://localhost:5000
 
-
-Your API will be live at → http://localhost:5000/api/products
-
-📌 API Endpoints
-🔹 Product Management
+📡 API Endpoints
+Products
 Method	Endpoint	Description
-POST	/api/products	Create a product
 GET	/api/products	Get all products
 GET	/api/products/:id	Get product by ID
+POST	/api/products	Create a new product
 PUT	/api/products/:id	Update product details
 DELETE	/api/products/:id	Delete product
-🔹 Inventory Operations
-Method	Endpoint	Description
-PATCH	/api/products/:id/increase	Increase stock { "amount": N }
-PATCH	/api/products/:id/decrease	Decrease stock { "amount": N }
-🔹 Bonus Feature
-Method	Endpoint	Description
-GET	/api/products/low-stock	List products below threshold
-📖 Example Requests
-
-Create Product
-
-POST /api/products
-Content-Type: application/json
-
-{
-  "name": "Laptop",
-  "description": "High performance laptop",
-  "stock_quantity": 5,
-  "low_stock_threshold": 2
-}
-
-
-Increase Stock
-
-PATCH /api/products/651a2c4f3e1d2b5c8f9a0b12/increase
-Content-Type: application/json
-
-{ "amount": 3 }
-
-
-Low Stock
-
-GET /api/products/low-stock
-
+PATCH	/api/products/:id/increase	Increase stock
+PATCH	/api/products/:id/decrease	Decrease stock
+GET	/api/products/low-stock	Get low stock products
 🧪 Running Tests
 
-We use Jest + Supertest with an in-memory MongoDB for isolated testing.
-
-Run tests:
-
+Run Jest + Supertest tests:
 npm test
 
+✅ Tests include:
 
-✅ Tests cover:
+Create product
 
-Product creation
+Increase stock
 
-Stock increase / decrease
+Decrease stock
 
-Preventing insufficient stock operations
+Prevent negative stock
 
-Low-stock filtering
+Low stock check
 
-📝 Assumptions & Design Choices
+📬 Postman Collection
 
-Products always start with stock_quantity >= 0.
+File: Inventory API.postman_collection.json
 
-Stock operations are atomic to avoid race conditions.
+To use:
 
-Default low_stock_threshold = 5, but customizable per product.
+Open Postman
 
-Error responses follow REST conventions (400 Bad Request, 404 Not Found, 500 Internal Server Error).
+Go to Collections → Import
+
+Select this file
+
+Run sample requests for all endpoints
+
+👨‍💻 Tech Stack
+
+Node.js
+
+Express.js
+
+MongoDB + Mongoose
+
+Jest + Supertest
+
+📌 License
+
+This project is licensed under the MIT License.
