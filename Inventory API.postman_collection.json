@@ -1,0 +1,19 @@
+{
+	"info": {
+		"_postman_id": "27c1d058-4978-4899-b1bf-3bca6793717a",
+		"name": "Inventory API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48883251",
+		"_collection_link": "https://tarushbatra11318-2371024.postman.co/workspace/Tarush's-Workspace~87e75e8b-af2b-472b-87cf-ef9bf1e3ff91/collection/48883251-27c1d058-4978-4899-b1bf-3bca6793717a?action=share&source=collection_link&creator=48883251"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

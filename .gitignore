@@ -1,0 +1,12 @@
+# Node.js
+node_modules/
+.env
+
+# Python/ML leftovers
+venv/
+*.h5
+*.dll
+
+# OS files
+.DS_Store
+Thumbs.db
